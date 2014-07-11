@@ -1,0 +1,36 @@
+﻿.fx .dx-fieldset {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.dx-theme-ios .fx .dx-fieldset .dx-field .dx-field-value,
+.dx-theme-ios7 .fx .dx-fieldset .dx-field .dx-field-value {	
+    height: 35px;
+}
+
+.fx .dx-fieldset .dx-field .dx-field-value .dx-selectbox {
+    width: 120px;
+}
+
+.dx-theme-win8 .fx .dx-fieldset .dx-field .dx-field-value .dx-selectbox {
+    width: auto;
+}
+
+.animation-block {
+    text-align: center;
+    height: 160px;
+    margin: 20px auto;
+    position: relative;
+
+}
+
+.animation-block > div {
+    width: 150px;
+    height: 125px;
+    background-image: url('../content/images/gallery/cherry.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -40px;
+    overflow: hidden;
+    margin: 5px auto 5px;
+}

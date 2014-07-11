@@ -1,0 +1,61 @@
+<div data-options="dxView : { name: 'Lists', title: 'Lists' } " >
+    <div data-bind="dxCommand: { title: editTitle, action: editList, icon: 'edit', id: 'save', visible: commandsVisible, type: 'danger' }" ></div>
+    <div data-bind="dxCommand: { title: 'Refresh', action: refreshList, icon: 'refresh', id: 'refresh', visible: commandsVisible }" ></div>
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div id="tabs" data-bind="dxTabs: { items: tabs, selectedIndex: selectedTab }"></div>
+
+        <div data-bind="dxMultiView: { items: contentItems, selectedIndex: selectedTab }">
+          
+            <div data-options="dxTemplate: { name: 'simpleList' }">
+                <!-- ko with: $root.simpleList -->        
+                <div class="list-content" data-bind="if: rendered">
+                    <!-- ko if: $root.editEnabled -->
+                    <div class="editType-wrapper" data-bind="dxSelectBox: { dataSource: $root.menuTypes, value: $root.menuType }"></div>
+                    <!-- /ko -->
+                    <div class="list-indentation" data-bind="dxList: {dataSource: dataSource, pullRefreshEnabled: true, editEnabled: editEnabled, editConfig: editConfig}"></div>                  
+                </div>
+                <!-- /ko -->
+            </div>
+
+            <div data-options="dxTemplate: { name: 'groupedList' }">
+                <!-- ko with: $root.groupedList -->
+                <div class="list-content" data-bind="if: rendered">
+                    <div class="list-indentation" data-bind="dxList: {dataSource: dataSource, grouped: true}">
+                        <div data-options="dxTemplate: { name: 'item'}">
+                            <div data-bind="text: $data"></div>
+                        </div>
+                        <div data-options="dxTemplate: { name: 'group'}">
+                            <div data-bind="text: key"></div>
+                        </div>
+                    </div>              
+                </div>
+                <!-- /ko -->
+            </div>
+
+            <div data-options="dxTemplate: { name: 'customList' }"> 
+                <!-- ko with: $root.customList -->
+                <div class="list-content" data-bind="if: rendered">
+                    <div class="search-wrapper" data-bind="dxTextBox: { placeholder: 'Search', mode: 'search', value: searchQuery, valueChangeEvent: 'keyup', enterKeyAction: resetFocus } "></div>                    
+                    <div class="list-indentation" data-bind="dxList: {dataSource: dataSource, searchQuery: searchQuery}">
+                        <div data-options="dxTemplate : { name: 'item' } " >
+                            <div>
+                                <div class="product-image-box">
+                                    <img data-bind="attr: { src: Image, alt: Name }" />
+                                </div>
+                                <div>
+                                    <div data-bind="text: Name" class="product-name"></div>
+                                    <div class="product-price"><strong data-bind="text: Globalize.format(Price, 'c2')"></strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                  
+                </div>
+                <!-- /ko -->
+            </div>
+
+        </div>
+
+        <div id="overlay" data-bind="dxToast: { rtlEnabled: rtlEnabled, message: 'Custom action completed', type: 'info' }"></div>
+
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div data-options="dxView : { name: 'Navigation', title: 'Navigation' } " >
+    <div data-bind="dxCommand: { title: 'Create', id: 'create', icon: 'plus', action: function() { console.log('plus click'); }}"></div>
+
+    <div data-bind="dxCommand: { title: 'Add', id: 'menu-add' }" ></div>
+    <div data-bind="dxCommand: { title: 'Edit', id: 'menu-edit' }" ></div>
+    <div data-bind="dxCommand: { title: 'Remove', id: 'menu-remove' }" ></div>
+   
+    
+    
+    <div class="navigation" data-options="dxContent : { targetPlaceholder: 'content' } " >       
+        <div data-bind="dxMultiView: { items: contentItems, animationEnabled: false, swipeEnabled: false, selectedIndex: navbar.selectedIndex }">
+            <div data-options="dxTemplate: { name: 'home' }">
+                <div class="content-image content-icon-home" ></div>
+            </div>
+            <div data-options="dxTemplate: { name: 'user' }">
+                <div class="content-image content-icon-user" ></div>
+            </div>
+            <div data-options="dxTemplate: { name: 'message' }">
+                <div class="content-image content-icon-message" ></div>
+            </div>
+            <div data-options="dxTemplate: { name: 'image' }">
+                <div class="content-image content-icon-image" ></div>
+            </div>
+        </div>
+        <div class="navbar-wrapper">
+            <div data-bind="dxNavBar: { items: navbar.items , itemClickAction: navbar.itemClickAction, selectedIndex: navbar.selectedIndex }"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div data-options="dxView : { name: 'Maps', title: 'Maps' } " >
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div data-bind="dxTabs: { items: tabs, selectedIndex: selectedTab }"></div>
+        <div data-bind="dxMultiView: { items: contentItems, selectedIndex: selectedTab }">
+            <div data-options="dxTemplate: { name: 'googleMap' }">
+                <div class="map">
+                    <div data-bind="dxMap: $root.mapGoogle"></div>
+                </div>
+            </div>
+            <div data-options="dxTemplate: { name: 'bingMap' }">
+                <div class="map">
+                    <div data-bind="dxMap: $root.mapBing"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

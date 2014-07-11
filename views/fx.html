@@ -1,0 +1,27 @@
+<div data-options="dxView : { name: 'fx', title: 'FX' } " >
+    <div  class="fx" data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <div class="dx-fieldset">          
+            <div class="dx-field">
+                <div class="dx-field-label">Animation type</div>
+                <div class="dx-field-value">
+                    <div data-bind="dxSelectBox: animationTypeOptions"></div>
+                </div>
+            </div>
+            <div class="dx-field">
+                <div class="dx-field-label">Duration</div>
+                <div class="dx-field-value" data-bind="dxSlider: durationSlider"></div>
+            </div>
+            <div class="dx-field">
+                <div class="dx-field-label"></div>
+                <div class="dx-field-value">
+                    <div data-bind="dxButton: {text: buttonTitle, clickAction: animate }"></div>
+                </div>
+            </div>             
+        </div>
+        
+        <div class="animation-block">           
+            Press Start button to show animation
+            <div></div>
+        </div>
+    </div>
+</div>
